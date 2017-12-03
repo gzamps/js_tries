@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <meta content='60' http-equiv='refresh' />
+  <!-- Reloads Page every 10 seconds -->
+
+  <body>
+    <table id="grdtable" cellspacing="5" style="vertical-align:left;">
+
+      <tr>
+        <td> Coin</td>
+        <td> Price </td>
+        <td> Holdings </td>
+        <td> Holdings ($USD)</td>
+      </tr>
+
+      <tr id="bitcoin">
+        <th>Bitcoin</th>
+        <td id="price"></td>
+        <td id="holdings"></td>
+        <td id="holdings_usd"></td>
+      </tr>
+
+      <tr id="ethereum">
+        <th>Ethereum</th>
+        <td id="price"></td>
+        <td id="holdings"></td>
+        <td id="holdings_usd"></td>
+      </tr>
+      
+            <tr id="ripple">
+        <th>Ripple</th>
+        <td id="price"></td>
+        <td id="holdings"></td>
+        <td id="holdings_usd"></td>
+      </tr>
+      
+      <tr id="litecoin">
+        <th>Litecoin</th>
+        <td id="price"></td>
+        <td id="holdings"></td>
+        <td id="holdings_usd"></td>
+      </tr>
+
+
+
+    </table>
+
+    <p id="demo">!</p>
+    <p id="demo2">!</p>
+
+
+    <script>
+      $.get("https://api.coinmarketcap.com/v1/ticker/", function(data, status) {
+        for (var i = 0; i < data.length - 1; i++) {
+
+          /*
+          if (data[i].id == "bitcoin-cash") {
+             var bitcoin_holdings = 10;
+             var bitcoin_price = data[i].price_usd;
+             //$("#bitcoin_price").html(data[i].price_usd);
+             $("#bitcoin_price").html(bitcoin_price);
+             $("#bitcoin_holdings").html(bitcoin_holdings);
+             $("#bitcoin_holdings_usd").html(bitcoin_price * bitcoin_holdings);
+             */
+							/*
+          var x = document.getElementById("grdtable").rows[3].cells.length;
+          document.getElementById("demo").innerHTML = "Found " + x + " cells in the first tr element.";
+          var x2 = document.getElementById("grdtable").rows[3].cells.namedItem("price").innerHTML;
+          document.getElementById("demo2").innerHTML = "Found " + x2 + " cells in the first tr element.";
+
+          var xp = document.getElementById("grdtable").rows[3].cells.namedItem("price");
+          xp.innerHTML = "NEW CONTENT";
+					*/
+          if (data[i].id == "bitcoin") {
+            var coin = "#bitcoin";
+            var holdings = 0;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+
+						var xprice = document.getElementById("grdtable").rows[1].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[1].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[1].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+            
+          }
+            else if (data[i].id == "ethereum") {
+            var coin = "#ethereum";
+            var holdings = 0.75;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[2].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[2].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[2].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+            else if (data[i].id == "ripple") {
+            var coin = "#ripple";
+            var holdings = 332.99;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[3].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[3].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[3].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+                      else if (data[i].id == "litecoin") {
+            var coin = "#litecoin";
+            var holdings = 2.40;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[4].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[4].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[4].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+                      else if (data[i].id == "ethereum") {
+            var coin = "#ethereum";
+            var holdings = 0.75;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[2].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[2].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[2].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+                      else if (data[i].id == "ethereum") {
+            var coin = "#ethereum";
+            var holdings = 0.75;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[2].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[2].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[2].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+                      else if (data[i].id == "ethereum") {
+            var coin = "#ethereum";
+            var holdings = 0.75;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[2].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[2].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[2].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+                      else if (data[i].id == "ethereum") {
+            var coin = "#ethereum";
+            var holdings = 0.75;
+            var price = data[i].price_usd;
+            var holdings_usd = price * holdings;
+            
+						var xprice = document.getElementById("grdtable").rows[2].cells.namedItem("price");
+          	xprice.innerHTML = price;
+            var xholdings = document.getElementById("grdtable").rows[2].cells.namedItem("holdings");
+          	xholdings.innerHTML = holdings;
+            var xholdings_usd = document.getElementById("grdtable").rows[2].cells.namedItem("holdings_usd");
+            xholdings_usd.innerHTML = holdings_usd.toFixed(2);
+
+          }
+
+
+
+        }
+      });
+
+    </script>
+  </body>
+
+</html>
+
